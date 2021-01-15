@@ -26,4 +26,23 @@
   background: transparent;
   border: 1px solid transparent;
   transition: border 0.1s ease-out;
+  overflow: hidden;
+}
+
+.search-result {
+  position: fixed;
+  max-height: 400px;
+  overflow: auto;
+  min-width: 400px;
+  background-color: #fbfbfb;
+  border-radius: 6px;
+  box-shadow: 3px 3px 5px 0px #ccc;
+  z-index: 2;
+}
+
+.item-type{
+  color: rgb(190, 190, 190);
+  font-weight: normal;
+  font-size: small;
+  margin-left: 7px;
 }
