@@ -4,7 +4,9 @@
     padding: 0;
     cursor: pointer;
     height: 250x;
-    box-shadow: 3px 3px 5px 0px #ccc;
+    box-shadow: none;
+    //box-shadow: 3px 3px 5px 0px #ccc;
+    z-index: 1;
   }
   
   .album-title {
@@ -14,6 +16,7 @@
     margin: 0;
     height: 40px;
     overflow: hidden;
+    z-index: 1;
   }
   
   .album-subtitle {
@@ -21,5 +24,6 @@
     color: rgb(105, 105, 105);
     padding: 0;
     margin-bottom: 15px;
+    z-index: 1;
   }
   

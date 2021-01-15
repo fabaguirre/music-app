@@ -22,4 +22,13 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  play(track: Track){
+    console.log('Play ' + track.title)
+
+    let audio = new Audio();
+    audio.src = track.preview;
+    audio.load();
+    audio.play();
+  }
+
 }
