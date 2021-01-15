@@ -5,8 +5,10 @@ export class Album {
     id: number;
     title: string;
     cover_xl: string; //pic
-    genre: string; //genres:data[0]:name
+    cover_medium: string;
+    genres: any; //genres:data[0]:name
     type: string;
+    nb_tracks: number;
     release_date: Date;
     artist: Artist;
     tracks: Track[] = new Array()
