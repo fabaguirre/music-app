@@ -1,0 +1,29 @@
+.search-container {
+  position: relative;
+  display: block;
+  background-color: #fbfbfb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.search-icon {
+  color: #616161;
+  position: absolute;
+  top: 14px;
+  left: 26px;
+  font-size: 18px;
+}
+
+.search-input {
+  font-size: 16px;
+  color: #212121;
+  padding: 0 72px;
+  box-sizing: border-box;
+  height: 48px;
+  width: 100%;
+  font-weight: 400;
+  outline: none;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: border 0.1s ease-out;
+}
