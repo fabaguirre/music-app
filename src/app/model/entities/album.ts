@@ -4,7 +4,7 @@ import { Track } from "./track";
 export class Album {
     id: number;
     title: string;
-    cover: string; //pic
+    cover_xl: string; //pic
     genre: string; //genres:data[0]:name
     release_date: Date;
     artist: Artist;
