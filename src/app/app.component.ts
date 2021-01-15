@@ -2,9 +2,11 @@ import { AfterViewInit } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { fromEvent,interval } from 'rxjs';
 import { debounceTime} from 'rxjs/operators';
 import { Track } from './model/entities/track';
+import { AlbumService } from './model/services/album.service';
 import { TrackService } from './model/services/track.service';
 
 @Component({
@@ -19,14 +21,14 @@ export class AppComponent {
   hideResult:boolean;
   searchResults: Track[]= new Array();
 
-  constructor(private trackService: TrackService){}
+  constructor(private trackService: TrackService, private albumService: AlbumService, private router:Router){}
 
   ngAfterViewInit(){
     let buttonStream$=fromEvent(this.searchInput.nativeElement, 'keyup')
     .pipe(debounceTime(500))
     .subscribe(()=>{
       let param: string = this.searchInput.nativeElement.value;
-      if(param.length != 0){
+      if(param.length != 0 && param != null){
         this.search(this.searchInput.nativeElement.value);
         this.hideResult = false;
       }else{
@@ -44,16 +46,17 @@ export class AppComponent {
       this.searchResults.push(t1)
       
     }*/
-
     this.searchResults = new Array()
-    this.trackService.findByAlbum(param).subscribe(
+
+    this.trackService.findByName(param).subscribe(
       data => {
         console.log(data.data)
         this.searchResults = this.searchResults.concat(data.data)
         console.log(this.searchResults.length)
       }
     )
-    this.trackService.findByName(param).subscribe(
+
+    this.albumService.findByAlbum(param).subscribe(
       data => {
         console.log(data.data)
         this.searchResults = this.searchResults.concat(data.data)
@@ -62,8 +65,17 @@ export class AppComponent {
     )
   }
 
-  onResultClick(track: Track){
+  onResultClick(item){
     this.hideResult=true;
-    console.log(track)
+
+    if(item.type == 'track'){
+      let audio = new Audio();
+      audio.src = item.preview;
+      audio.load();
+      audio.play();
+    }else{
+      console.log('Album')
+      this.router.navigate(['/album',item.id]);
+    }
   }
 }

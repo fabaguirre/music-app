@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-xs-12">
+      <h5>
+        <a routerLink="../../">{{album?.artist.name}} - Albumes </a> / Canciones
+      </h5>
+    </div>
+  </div>
+
+  <div class="row  mb-5 mt-4">
+    <div class="col-xs-2">
+      <img [src]="album?.cover_medium" width="100%" class="responsive-image mat-elevation-z1">
+    </div>
+    <div class="col-xs-10 ml-5">
+      <h2> {{album?.title}} </h2>
+      <div class="row">
+        <div class="col-xs-12 album-details">
+          {{album?.artist.name}} </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 album-details">
+          {{album?.release_date | date:'yyyy'}} | {{album?.nb_tracks}} Canciones | {{album?.genres.data[0].name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

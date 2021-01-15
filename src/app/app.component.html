@@ -11,7 +11,7 @@
       <mat-list class="search-result" *ngIf="searchResults.length>0 && !hideResult">
         <mat-list-item class="search-result-item" role="listitem" *ngFor="let item of searchResults">
           <a (click)="onResultClick(item)">{{
-            item.title }}
+            item.title + " - " + item.artist.name}}
             <span class="item-type" *ngIf="item.type=='track'">Canción</span>
             <span class="item-type" *ngIf="item.type=='album'">Álbum</span>
           </a>       
