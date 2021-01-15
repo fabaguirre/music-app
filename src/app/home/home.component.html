@@ -4,8 +4,8 @@
     <div class="col-lg-2 col-md-3 col-sm-4" *ngFor="let track of chartTracks">
       <mat-card class="album-card" matRipple (click)="play(track)">
         <mat-card-content>
-          <img [src]="track.album.cover_xl" width="100%"
-            class="responsive-image">
+          <img [src]="track.album.cover_xl" width="100%" class="responsive-image">
+          <i class="fa fa-play play-icon"></i>
         </mat-card-content>
         <mat-card-header class="album-header">
           <mat-card-title class="album-title">{{ track.title }}</mat-card-title>
@@ -15,4 +15,3 @@
     </div>
   </div>
 </div>
-

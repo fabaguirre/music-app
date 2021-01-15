@@ -3,6 +3,7 @@
     margin: 20px 0px;
     padding: 0;
     cursor: pointer;
+    position: relative;
     height: 250x;
     box-shadow: none;
     //box-shadow: 3px 3px 5px 0px #ccc;
@@ -25,5 +26,14 @@
     padding: 0;
     margin-bottom: 15px;
     z-index: 1;
+  }
+
+  .play-icon{
+    font-size: 50px;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    color: white;
+    opacity: 0.8;
   }
   
