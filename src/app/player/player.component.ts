@@ -11,6 +11,8 @@ import { Track } from '../model/entities/track';
 export class PlayerComponent implements OnInit {
 
   track: Track;
+  isPlaying: boolean;
+  isMute: boolean;
   constructor() { }
 
   ngOnInit() {
@@ -21,6 +23,17 @@ export class PlayerComponent implements OnInit {
     this.track.album = new Album();
     this.track.album.title = 'YHLQMDLG';
     this.track.album.cover_medium = 'https://musica.news/wp-content/uploads/2020/03/Portada-de-YHLQMDLG-Bud-Bunny.jpg';
+
+    this.isPlaying = true;
+    this.isMute = true;
+  }
+
+  play(){
+    this.isPlaying = !this.isPlaying;
+  }
+
+  mute(){
+    this.isMute = !this.isMute;
   }
 
 }

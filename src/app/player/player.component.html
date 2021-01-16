@@ -3,7 +3,7 @@
     <div class="p-2 bd-highlight">
       <div class="row">
         <div class="col">
-            <img [src]="track.album.cover_medium" height="85px" class="responsive-image">
+          <img [src]="track.album.cover_medium" height="85px" class="responsive-image">
         </div>
         <div class="col my-auto ml-4">
           <p class="track-title">
@@ -16,27 +16,29 @@
       </div>
     </div>
     <div class="p-2 bd-highlight">
-        <div class="row">
-            <button type="button">
-                <i class="fa fa-step-backward control-icon"></i>
-            </button>
-            <button type="button">
-                <i class="fa fa-play control-icon"></i>
-            </button>
-            <button type="button">
-                <i class="fa fa-step-forward control-icon"></i>
-            </button>
-        </div>
+      <div class="row">
+        <button type="button">
+          <i class="fa fa-step-backward control-icon"></i>
+        </button>
+        <button type="button" (click)="play()">
+          <i class="fa fa-play control-icon" *ngIf="isPlaying"></i>
+          <i class="fa fa-pause control-icon" *ngIf="!isPlaying"></i>
+        </button>
+        <button type="button">
+          <i class="fa fa-step-forward control-icon"></i>
+        </button>
+      </div>
     </div>
     <div class="p-2 bd-highlight">
-        <div class="row align-items-center">
-            <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="50" step="2" class="slider" id="myRange">
-              </div>
-            <button type="button">
-                <i class="fa fa-volume-off control-icon"></i>
-            </button>    
-        </div>    
+      <div class="row align-items-center">
+        <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" step="2" class="slider" id="myRange">
+        </div>
+        <button type="button" (click)="mute()" class="pr-4">
+          <i class="fa fa-volume-up control-icon" *ngIf="isMute"></i>
+          <i class="fa fa-volume-off control-icon" *ngIf="!isMute"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

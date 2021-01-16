@@ -7,9 +7,18 @@
           <img [src]="track.album.cover_xl" width="100%" class="responsive-image">
           <i class="fa fa-play play-icon"></i>
         </mat-card-content>
+        <button class="menu-btn">
+          <i class="fa fa-ellipsis-v"></i>
+        </button>
         <div>
-          <mat-card-title class="album-title">{{ track.title }}</mat-card-title>
-          <mat-card-subtitle class="album-subtitle">{{ track.artist.name }}</mat-card-subtitle>
+          <mat-card-title>
+            <a href="#" class="album-title">{{ track.title }}</a>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <a href="#" class="album-subtitle">
+              {{ track.artist.name }}
+            </a>
+          </mat-card-subtitle>
         </div>
       </mat-card>
     </div>

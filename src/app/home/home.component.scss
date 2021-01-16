@@ -21,6 +21,10 @@
   z-index: 1;
 }
 
+mat-card-content:hover {
+  opacity: 0.6;
+}
+
 .album-subtitle {
   font-size: 14px;
   color: rgb(131, 131, 131);
@@ -36,4 +40,20 @@
   left: 40%;
   color: white;
   opacity: 0.8;
+}
+
+.menu-btn {
+  font-size: 22px;
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  color: white;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  opacity: 1;
+  transition: 0.25s;
+}
+.menu-btn:hover {
+  font-size: 25px;
 }
