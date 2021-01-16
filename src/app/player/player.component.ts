@@ -12,6 +12,7 @@ export class PlayerComponent implements OnInit {
   track: Track;
   isPlaying: boolean;
   isMute: boolean;
+  volume: number = 0.5;
   audio = new Audio();
   constructor(
     private sharedService: SharedService
@@ -30,6 +31,7 @@ export class PlayerComponent implements OnInit {
           this.audio.src = this.track.preview;
           this.audio.load();
           this.audio.play();
+          this.audio.volume = this.volume;
 
           this.isPlaying = true;
         }
@@ -54,7 +56,8 @@ export class PlayerComponent implements OnInit {
   }
 
   setVolume(event: any){
-    this.audio.volume = event.target.value
+    this.volume = event.target.value / 100
+    this.audio.volume = this.volume
   }
 
 }
