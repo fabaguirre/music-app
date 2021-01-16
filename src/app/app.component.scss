@@ -93,3 +93,11 @@
 a:hover {
   color: #e86060;
 }
+
+.music-control {
+  position: fixed;
+  bottom: 0;
+  height: 85px;
+  z-index: 2;
+  background-color: #eb5757;
+}

@@ -12,12 +12,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
     HomeComponent,
-      AlbumComponent
+      AlbumComponent,
+      PlayerComponent
    ],
   imports: [
     BrowserModule,
