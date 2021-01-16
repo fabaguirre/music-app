@@ -1,3 +1,42 @@
-<p>
-    player works!
-</p>
+<div class="container-fluid">
+  <div class="d-flex justify-content-between align-items-center bd-highlight">
+    <div class="p-2 bd-highlight">
+      <div class="row">
+        <div class="col">
+            <img [src]="track.album.cover_medium" height="85px" class="responsive-image">
+        </div>
+        <div class="col my-auto ml-4">
+          <p class="track-title">
+            {{ track.title }}
+          </p>
+          <p class="album-title">
+            {{ track.album.title }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="p-2 bd-highlight">
+        <div class="row">
+            <button type="button">
+                <i class="fa fa-step-backward control-icon"></i>
+            </button>
+            <button type="button">
+                <i class="fa fa-play control-icon"></i>
+            </button>
+            <button type="button">
+                <i class="fa fa-step-forward control-icon"></i>
+            </button>
+        </div>
+    </div>
+    <div class="p-2 bd-highlight">
+        <div class="row align-items-center">
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" step="2" class="slider" id="myRange">
+              </div>
+            <button type="button">
+                <i class="fa fa-volume-off control-icon"></i>
+            </button>    
+        </div>    
+    </div>
+  </div>
+</div>
