@@ -1,18 +1,20 @@
-<div class="container">
+<div class="container mx-5">
   <div class="row mt-4">
     <div class="col-xs-12">
       <h5>
-        <a routerLink="../../">{{album?.artist.name}} - Albumes </a> / Canciones
+        <a routerLink="../../">{{album?.artist.name}} - Álbums </a> / Canciones
       </h5>
     </div>
   </div>
 
   <div class="row  mb-5 mt-4">
     <div class="col-xs-2">
-      <img [src]="album?.cover_medium" width="100%" class="responsive-image mat-elevation-z1">
+      <img [src]="album?.cover_medium" width="100%">
     </div>
     <div class="col-xs-10 ml-5">
-      <h2> {{album?.title}} </h2>
+      <div class="row">
+        <h2> {{album?.title}} </h2>
+      </div>
       <div class="row">
         <div class="col-xs-12 album-details">
           {{album?.artist.name}} </div>
@@ -24,4 +26,19 @@
       </div>
     </div>
   </div>
+  
+  <table class="table table-hover">
+    <thead>
+      <tr class="d-flex">
+        <th class="col-1 text-center">#</th>
+        <th class="col-11">Título</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="d-flex" *ngFor="let track of album.tracks; let i = index">
+        <td class="col-1 text-center">{{ i + 1 }}</td>
+        <td class="col-11" (click)="play(track)">{{ track.title }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
