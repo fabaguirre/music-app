@@ -1,6 +1,6 @@
 .album-card {
     overflow: hidden;
-    margin: 20px 0px;
+    margin: 5px 0px;
     padding: 0;
     cursor: pointer;
     position: relative;
@@ -8,14 +8,14 @@
     box-shadow: none;
     //box-shadow: 3px 3px 5px 0px #ccc;
     z-index: 1;
+    background-color: #fafafa;
   }
   
   .album-title {
     font-size: 18px;
     font-weight: 500;
     color: rgb(85, 85, 85);
-    padding: 0;
-    margin: 0;
+    //margin-left: 15px;
     height: 40px;
     overflow: hidden;
     z-index: 1;
@@ -24,8 +24,8 @@
   .album-subtitle {
     font-size: 14px;
     color: rgb(131, 131, 131);
-    padding: 0;
-    margin-bottom: 15px;
+    //margin-left: 15px;
+    margin-bottom: 17px;
     z-index: 1;
   }
 

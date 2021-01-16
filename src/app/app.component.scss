@@ -1,6 +1,7 @@
 .toolbar {
   background-color: #fafafa;
-  margin-top: 25px;
+  margin-top: 25px;  
+  font-family: inherit;
 }
 
 .search-container {
@@ -69,18 +70,22 @@
 .user-icon {
   color: #e86060;
   margin-right: 10px;
+  font-size: larger;
 }
 
 .user-text {
   color: #555555;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: large;
 }
 
 .sidebar-item1 {
   color: white;
+  font-size: 22px;
 }
 
 .sidebar-item2 {
   color: white;
-  font-weight: 200;
+  font-size: 14px;
+  font-weight: 300;
 }
