@@ -67,6 +67,7 @@ export class AppComponent {
 
   onResultClick(item){
     this.hideResult=true;
+    this.searchInput.nativeElement.value = '';
 
     if(item.type == 'track'){
       let audio = new Audio();
