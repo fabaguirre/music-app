@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Track } from '../model/entities/track';
 import { ChartService } from '../model/services/chart.service';
 
@@ -8,6 +9,8 @@ import { ChartService } from '../model/services/chart.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  @Output() trackSelected: EventEmitter<Track> = new EventEmitter<Track>();
 
   chartTracks: Track[];
   constructor(
@@ -24,11 +27,7 @@ export class HomeComponent implements OnInit {
 
   play(track: Track){
     console.log('Play ' + track.title)
-
-    let audio = new Audio();
-    audio.src = track.preview;
-    audio.load();
-    audio.play();
+    this.trackSelected.emit(track)
   }
 
 }

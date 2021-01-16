@@ -21,6 +21,8 @@ export class AppComponent {
   hideResult:boolean;
   searchResults: Track[]= new Array();
 
+  track: Track;
+
   constructor(private trackService: TrackService, private albumService: AlbumService, private router:Router){}
 
   ngAfterViewInit(){
@@ -70,13 +72,15 @@ export class AppComponent {
     this.searchInput.nativeElement.value = '';
 
     if(item.type == 'track'){
-      let audio = new Audio();
-      audio.src = item.preview;
-      audio.load();
-      audio.play();
+      this.track = item
     }else{
       console.log('Album')
       this.router.navigate(['/album',item.id]);
     }
+  }
+
+  selectTrack(track: Track){
+    console.log(track)
+    this.track = track
   }
 }
