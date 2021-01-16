@@ -14,7 +14,11 @@ export class AlbumComponent implements OnInit {
 
   album: Album;
   
-  constructor(private activatedToute: ActivatedRoute, private albumService: AlbumService, private sharedService: SharedService) { }
+  constructor(
+    private activatedToute: ActivatedRoute,
+    private albumService: AlbumService,
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit() {
     this.activatedToute.params.subscribe(params => {

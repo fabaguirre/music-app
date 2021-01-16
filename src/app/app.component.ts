@@ -6,6 +6,7 @@ import { fromEvent,interval } from 'rxjs';
 import { debounceTime} from 'rxjs/operators';
 import { Track } from './model/entities/track';
 import { AlbumService } from './model/services/album.service';
+import { SharedService } from './model/services/shared.service';
 import { TrackService } from './model/services/track.service';
 
 @Component({
@@ -22,7 +23,12 @@ export class AppComponent {
 
   track: Track;
 
-  constructor(private trackService: TrackService, private albumService: AlbumService, private router:Router){}
+  constructor(
+    private trackService: TrackService,
+    private albumService: AlbumService,
+    private router:Router,
+    private sharedService: SharedService
+    ){}
 
   ngAfterViewInit(){
     let buttonStream$=fromEvent(this.searchInput.nativeElement, 'keyup')
@@ -43,17 +49,13 @@ export class AppComponent {
 
     this.trackService.findByName(param).subscribe(
       data => {
-        console.log(data.data)
         this.searchResults = this.searchResults.concat(data.data)
-        console.log(this.searchResults.length)
       }
     )
 
     this.albumService.findByAlbum(param).subscribe(
       data => {
-        console.log(data.data)
         this.searchResults = this.searchResults.concat(data.data)
-        console.log(this.searchResults.length)
       }
     )
   }
@@ -64,8 +66,8 @@ export class AppComponent {
 
     if(item.type == 'track'){
       this.track = item
+      this.sharedService.loadTrack(item)
     }else{
-      console.log('Album')
       this.router.navigate(['/album',item.id]);
     }
   }
