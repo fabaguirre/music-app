@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Album } from '../model/entities/album';
 import { Track } from '../model/entities/track';
 import { AlbumService } from '../model/services/album.service';
+import { SharedService } from '../model/services/shared.service';
 
 @Component({
   selector: 'app-album',
@@ -13,7 +14,7 @@ export class AlbumComponent implements OnInit {
 
   album: Album;
   
-  constructor(private activatedToute: ActivatedRoute, private albumService: AlbumService) { }
+  constructor(private activatedToute: ActivatedRoute, private albumService: AlbumService, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.activatedToute.params.subscribe(params => {
@@ -31,12 +32,8 @@ export class AlbumComponent implements OnInit {
   }
 
   play(track: Track){
-    console.log('Play ' + track.title)
-
-    let audio = new Audio();
-    audio.src = track.preview;
-    audio.load();
-    audio.play();
+    track.album = this.album
+    this.sharedService.loadTrack(track)
   }
 
 }
