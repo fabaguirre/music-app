@@ -17,7 +17,7 @@ import { TrackService } from './model/services/track.service';
 export class AppComponent {
   @ViewChild('searchBox') searchInput: ElementRef;
   
-  title = 'FractalUp Music';
+  user = 'Fabrizio A.';
   hideResult:boolean;
   searchResults: Track[]= new Array();
 

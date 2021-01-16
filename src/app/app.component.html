@@ -1,25 +1,98 @@
-<mat-toolbar role="heading">
-  <div class="col-md-3 col-xs-1" routerLink="/"><span>
-      <i class="fa fa-play-circle"></i>
-      &nbsp; <span class="header-text">{{ title }}</span> </span></div>
-
-  <div class="col-md-6 col-xs-11 ml-5">
-    <div class="search-container">
-      <i class="fa fa-search search-icon"></i>
-      <input type="text" placeholder="Buscar álbum o canción" class="search-input" #searchBox>
-
-      <mat-list class="search-result" *ngIf="searchResults.length>0 && !hideResult">
-        <mat-list-item class="search-result-item" role="listitem" *ngFor="let item of searchResults">
-          <a (click)="onResultClick(item)">{{
-            item.title + " - " + item.artist.name}}
-            <span class="item-type" *ngIf="item.type=='track'">Canción</span>
-            <span class="item-type" *ngIf="item.type=='album'">Álbum</span>
-          </a>       
-        </mat-list-item>
-      </mat-list>
+<mat-drawer-container class="drawer-container">
+  <mat-drawer mode="side" opened class="drawer text-center">
+    <div routerLink="/">
+      <img src="/assets/img/foxbel-music.png" class="logo">
     </div>
-  </div>
-  
-</mat-toolbar>
 
-<router-outlet></router-outlet>
+    <div class="container text-left mx-4 mt-4">
+      <div>
+        <h2 class="sidebar-item1">
+          Mi Librería
+        </h2>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Recientes
+          </p>
+        </a>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Artistas
+          </p>
+        </a>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Álbums
+          </p>
+        </a>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Canciones
+          </p>
+        </a>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Estaciones
+          </p>
+        </a>
+      </div>
+
+      <div>
+        <h2 class="sidebar-item1">
+          <p>
+            Playlist
+          </p>
+        </h2>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Metal
+          </p>
+        </a>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Para bailar
+          </p>
+        </a>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Rock 90s
+          </p>
+        </a>
+        <a class="sidebar-item2" href="#">
+          <p>
+            Baladas
+          </p>
+        </a>
+      </div>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    
+    <mat-toolbar role="heading" class="toolbar d-flex justify-content-between">
+      <div class="col-md-6 col-xs-11 ml-5">
+        <div class="search-container">          
+          <input type="text" placeholder="Buscar álbum o canción" class="search-input" #searchBox>
+          <i class="fa fa-search search-icon"></i>
+
+          <mat-list class="search-result" *ngIf="searchResults.length>0 && !hideResult">
+            <mat-list-item class="search-result-item" role="listitem" *ngFor="let item of searchResults">
+              <a (click)="onResultClick(item)">{{
+                item.title + " - " + item.artist.name}}
+                <span class="item-type" *ngIf="item.type=='track'">Canción</span>
+                <span class="item-type" *ngIf="item.type=='album'">Álbum</span>
+              </a>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+
+      <div class="mr-5">
+        <p class="user-text">
+          <i class="fa fa-user user-icon"></i>
+          {{ user }}</p>
+      </div>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>
