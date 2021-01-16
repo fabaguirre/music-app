@@ -94,11 +94,11 @@
       </div>
     </mat-toolbar>
 
-    <app-home (trackSelected)="selectTrack($event)"></app-home>
+    <router-outlet></router-outlet>
     
   </mat-drawer-content>
 </mat-drawer-container>
 
 <mat-toolbar role="footer" class="music-control">
-  <app-player style="width: 100%;" [track]="track"></app-player>
+  <app-player style="width: 100%;"></app-player>
 </mat-toolbar>

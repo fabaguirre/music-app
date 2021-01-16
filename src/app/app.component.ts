@@ -1,4 +1,3 @@
-import { AfterViewInit } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
@@ -40,14 +39,6 @@ export class AppComponent {
   }
 
   search(param: string) {
-    //this.searchResults = new Array()
-    
-    /*for (let index = 0; index < 60; index++) {
-      let t1 = new Track()
-      t1.title='Hola mundo' + index.toString()
-      this.searchResults.push(t1)
-      
-    }*/
     this.searchResults = new Array()
 
     this.trackService.findByName(param).subscribe(
@@ -77,10 +68,5 @@ export class AppComponent {
       console.log('Album')
       this.router.navigate(['/album',item.id]);
     }
-  }
-
-  selectTrack(track: Track){
-    console.log(track)
-    this.track = track
   }
 }

@@ -1,7 +1,7 @@
-import { EventEmitter } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
 import { Track } from '../model/entities/track';
 import { ChartService } from '../model/services/chart.service';
+import { SharedService } from '../model/services/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +10,10 @@ import { ChartService } from '../model/services/chart.service';
 })
 export class HomeComponent implements OnInit {
 
-  @Output() trackSelected: EventEmitter<Track> = new EventEmitter<Track>();
-
   chartTracks: Track[];
   constructor(
-    private chartService: ChartService
+    private chartService: ChartService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -26,8 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   play(track: Track){
-    console.log('Play ' + track.title)
-    this.trackSelected.emit(track)
+    this.sharedService.loadTrack(track)
   }
 
 }

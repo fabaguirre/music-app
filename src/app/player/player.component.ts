@@ -1,30 +1,40 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Track } from '../model/entities/track';
+import { SharedService } from '../model/services/shared.service';
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements OnInit, OnChanges {
+export class PlayerComponent implements OnInit {
 
-  @Input() track: Track;
+  track: Track;
   isPlaying: boolean;
   isMute: boolean;
   audio = new Audio();
-  constructor() { }
+  constructor(
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit() {
     this.isPlaying = false;
     this.isMute = false;
-  }
 
-  ngOnChanges(changes: SimpleChanges){
-    this.audio.src = this.track.preview;
-    this.audio.load();
-    this.audio.play();
+    this.sharedService.getTrack().subscribe(
+      track => {
+        console.log('Shared service', track)
+        this.track = track
+        
+        if(this.track != null){
+          this.audio.src = this.track.preview;
+          this.audio.load();
+          this.audio.play();
 
-    this.isPlaying = true;
+          this.isPlaying = true;
+        }
+      }
+    )
   }
 
   play(){
